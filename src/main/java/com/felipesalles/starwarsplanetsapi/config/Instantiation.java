@@ -41,6 +41,14 @@ public class Instantiation implements CommandLineRunner{
 		
 		Planet p1 = new Planet(null, "Tatooine", "arid", "desert");
 		Planet p2 = new Planet(null, "Alderaan", "temperate", "grasslands, mountains");
+		Planet p3 = new Planet(null, "Yavin IV", "temperate, tropical", "jungle, rainforests");
+		Planet p4 = new Planet(null, "Hoth", "frozen", "tundra, ice caves, mountain ranges");
+		Planet p5 = new Planet(null, "Dagobah", "murky", "swamp, jungles");
+		Planet p6 = new Planet(null, "Bespin", "temperate", "gas giant");
+		Planet p7 = new Planet(null, "Endor", "temperate", "forests, mountains, lakes");
+		Planet p8 = new Planet(null, "Naboo", "temperate", "grassy hills, swamps, forests, mountains");
+		Planet p9 = new Planet(null, "Coruscant", "temperate", "cityscape, mountains");
+		Planet p10 = new Planet(null, "Kamino", "temperate", "ocean");
 		
 				
 		MovieDTO mDto1 = new MovieDTO(m1);
@@ -52,8 +60,17 @@ public class Instantiation implements CommandLineRunner{
 		
 		p1.getMovies().addAll(Arrays.asList(mDto4, mDto6, mDto1, mDto2, mDto3));
 		p2.getMovies().addAll(Arrays.asList(mDto4,mDto3 ));
+		p3.getMovies().addAll(Arrays.asList(mDto4));
+		p4.getMovies().addAll(Arrays.asList( mDto5));
+		p5.getMovies().addAll(Arrays.asList(mDto3, mDto5, mDto6));
+		p6.getMovies().addAll(Arrays.asList(mDto5));
+		p7.getMovies().addAll(Arrays.asList(mDto6));
+		p8.getMovies().addAll(Arrays.asList(mDto1, mDto2, mDto3, mDto6));
+		p9.getMovies().addAll(Arrays.asList(mDto1, mDto2, mDto3, mDto6));
+		p10.getMovies().addAll(Arrays.asList(mDto2));
 		
-		planetRepository.saveAll(Arrays.asList(p1, p2));
+		
+		planetRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 		
 	}
 
