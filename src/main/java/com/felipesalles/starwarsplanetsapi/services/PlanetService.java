@@ -25,4 +25,10 @@ public class PlanetService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 	
+	public Planet findByName(String text) {
+		Optional <Planet> obj = repo.findByNameContainingIgnoreCase(text);
+		
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+	}
+	
 }
