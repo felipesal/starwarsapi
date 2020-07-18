@@ -1,9 +1,13 @@
 package com.felipesalles.starwarsplanetsapi.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.felipesalles.starwarsplanetsapi.DTO.MovieDTO;
 
 @Document
 public class Planet implements Serializable{
@@ -17,6 +21,8 @@ public class Planet implements Serializable{
 	private String climate;
 	
 	private String terrain;
+	
+	private List<MovieDTO> movies = new ArrayList<>();
 
 	public Planet() {
 		
@@ -61,6 +67,14 @@ public class Planet implements Serializable{
 	public void setTerrain(String terrain) {
 		this.terrain = terrain;
 	}
+	
+	public List<MovieDTO> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<MovieDTO> movies) {
+		this.movies = movies;
+	}
 
 	@Override
 	public int hashCode() {
@@ -86,8 +100,7 @@ public class Planet implements Serializable{
 			return false;
 		return true;
 	}
+
 	
-	
-	
-	
+
 }

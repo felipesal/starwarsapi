@@ -1,11 +1,14 @@
 package com.felipesalles.starwarsplanetsapi.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import com.felipesalles.starwarsplanetsapi.DTO.MovieDTO;
 import com.felipesalles.starwarsplanetsapi.domain.Movie;
 import com.felipesalles.starwarsplanetsapi.domain.Planet;
 import com.felipesalles.starwarsplanetsapi.repositories.MovieRepository;
@@ -38,6 +41,17 @@ public class Instantiation implements CommandLineRunner{
 		
 		Planet p1 = new Planet(null, "Tatooine", "arid", "desert");
 		Planet p2 = new Planet(null, "Alderaan", "temperate", "grasslands, mountains");
+		
+				
+		MovieDTO mDto1 = new MovieDTO(m1);
+		MovieDTO mDto2 = new MovieDTO(m2);
+		MovieDTO mDto3 = new MovieDTO(m3);
+		MovieDTO mDto4 = new MovieDTO(m4);
+		MovieDTO mDto5 = new MovieDTO(m5);
+		MovieDTO mDto6 = new MovieDTO(m6);
+		
+		p1.getMovies().addAll(Arrays.asList(mDto4, mDto6, mDto1, mDto2, mDto3));
+		p2.getMovies().addAll(Arrays.asList(mDto4,mDto3 ));
 		
 		planetRepository.saveAll(Arrays.asList(p1, p2));
 		

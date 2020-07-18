@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.felipesalles.starwarsplanetsapi.DTO.MovieDTO;
 import com.felipesalles.starwarsplanetsapi.domain.Movie;
 import com.felipesalles.starwarsplanetsapi.repositories.MovieRepository;
 
@@ -18,4 +19,5 @@ public class MovieService {
 		return repo.findAll();
 	}
 	
+		
 }
