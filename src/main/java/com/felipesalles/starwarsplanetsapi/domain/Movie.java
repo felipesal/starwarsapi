@@ -2,9 +2,16 @@ package com.felipesalles.starwarsplanetsapi.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="movies")
 public class Movie implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	private String id;
+	
 	private String episode_id;
 	
 	private String title;
@@ -15,10 +22,20 @@ public class Movie implements Serializable{
 		
 	}
 
-	public Movie(String episode_id, String title, String release_date) {
+	public Movie(String id, String episode_id, String title, String release_date) {
+		this.id = id;
 		this.episode_id = episode_id;
 		this.title = title;
 		this.release_date = release_date;
+	}
+	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getEpisode_id() {

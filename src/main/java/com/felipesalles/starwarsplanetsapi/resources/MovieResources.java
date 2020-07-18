@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.felipesalles.starwarsplanetsapi.domain.Movie;
+import com.felipesalles.starwarsplanetsapi.services.MovieService;
 
 @RestController
 @RequestMapping(value= "/movies")
 public class MovieResources {
+	
+	@Autowired
+	private MovieService service;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Movie>> findAll(){
 		
-		List<Movie> movies = new ArrayList<>();
-		
-		Movie m1 = new Movie("1", "The Phantom Menace", "1999-05-19");
-		Movie m2 = new Movie("2", "Attack of the Clones", "2002-05-16");
-		
-		movies.addAll(Arrays.asList(m1, m2));
+		List<Movie> movies = service.findAll();
 		
 		return ResponseEntity.ok().body(movies);
 		
