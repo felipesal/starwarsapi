@@ -39,4 +39,9 @@ public class PlanetService {
 	public Planet fromDto(PlanetNewDTO objDto) {
 		return new Planet(null, objDto.getName(), objDto.getClimate(), objDto.getTerrain());
 	}
+	
+	public void delete(String id) {
+		Planet obj = findById(id);
+		repo.delete(obj);
+	}
 }
