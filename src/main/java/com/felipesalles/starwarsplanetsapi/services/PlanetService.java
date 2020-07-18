@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.felipesalles.starwarsplanetsapi.DTO.PlanetNewDTO;
 import com.felipesalles.starwarsplanetsapi.domain.Planet;
 import com.felipesalles.starwarsplanetsapi.repositories.PlanetRepository;
 import com.felipesalles.starwarsplanetsapi.services.exception.ObjectNotFoundException;
@@ -31,4 +32,11 @@ public class PlanetService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 	
+	public Planet insert(Planet planet) {
+		return repo.insert(planet);
+	}
+	
+	public Planet fromDto(PlanetNewDTO objDto) {
+		return new Planet(null, objDto.getName(), objDto.getClimate(), objDto.getTerrain());
+	}
 }
